@@ -1,4 +1,11 @@
 # RepoAssistant-UX 🐍
+![Role](https://shields.io)
+![Focus](https://shields.io)
+![Markdown](https://shields.io)
+![GitHub](https://shields.io)
+![Python](https://shields.io)
+
+
 
 ### 📚 What is this project?
 This repository hosts Python automation utilities and user experience (UX) enhancements designed to help public and academic libraries in developing nations streamline their digital archiving and remote access systems.
